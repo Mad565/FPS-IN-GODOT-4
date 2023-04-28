@@ -1,0 +1,122 @@
+[gd_scene load_steps=13 format=3 uid="uid://bj37qr2dgqd8u"]
+
+[ext_resource type="Script" path="res://PLAYER AND MAIN/fpds.gd" id="1_clla3"]
+[ext_resource type="PackedScene" uid="uid://dr2btb7nnwm5r" path="res://WEAPON_HR's/WEAPON 2 HR.tscn" id="2_6ixpu"]
+[ext_resource type="Script" path="res://PLAYER AND MAIN/Hand.gd" id="2_v8gvs"]
+[ext_resource type="PackedScene" uid="uid://2vja3tv4djnv" path="res://WEAPON_HR's/WEAPON 1 HR.tscn" id="4_r8cxr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6qgcx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iw7xu"]
+
+[sub_resource type="Sky" id="Sky_b0e4i"]
+sky_material = SubResource("ProceduralSkyMaterial_iw7xu")
+
+[sub_resource type="Environment" id="Environment_tq8f0"]
+background_mode = 2
+sky = SubResource("Sky_b0e4i")
+
+[sub_resource type="LabelSettings" id="LabelSettings_j58xo"]
+font_size = 39
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_xujfr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hand:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i6hot"]
+resource_name = "SWITCH"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hand:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.222668, 0.262322, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.968658, 0.698132, 0), Vector3(0, 0, 0), Vector3(0, 0, 0.0418879), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ff0o1"]
+_data = {
+"RESET": SubResource("Animation_xujfr"),
+"SWITCH": SubResource("Animation_i6hot")
+}
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_clla3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_6qgcx")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+environment = SubResource("Environment_tq8f0")
+fov = 70.0
+
+[node name="REACH" type="RayCast3D" parent="Head/Camera3D"]
+target_position = Vector3(0, 0, -5)
+
+[node name="Hand" type="Node3D" parent="Head/Camera3D"]
+script = ExtResource("2_v8gvs")
+
+[node name="WEAPON 2 HR" parent="Head/Camera3D/Hand" instance=ExtResource("2_6ixpu")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.06, -0.042, -0.192)
+
+[node name="WEAPON 1 HR" parent="Head/Camera3D/Hand" instance=ExtResource("4_r8cxr")]
+
+[node name="HUD" type="Control" parent="Head/Camera3D"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="Head/Camera3D/HUD"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Head/Camera3D/HUD/Control"]
+layout_mode = 0
+offset_left = -245.0
+offset_top = -74.0
+offset_right = -116.0
+offset_bottom = -17.0
+text = "AMMO
+"
+label_settings = SubResource("LabelSettings_j58xo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Head/Camera3D"]
+libraries = {
+"": SubResource("AnimationLibrary_ff0o1")
+}
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.389, 0)
+target_position = Vector3(0, 1, 0)

@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://wt8iepcx7ghj"]
+
+[ext_resource type="Script" path="res://WEAPON_PICK_script/WEAPON_PICKUP.gd" id="1_2xpwp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1gbhq"]
+size = Vector3(0.2, 0.2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ycyy"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kil05"]
+material = SubResource("StandardMaterial3D_7ycyy")
+size = Vector3(0.2, 0.2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r2ol4"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="WEAPON 3" type="RigidBody3D"]
+script = ExtResource("1_2xpwp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1gbhq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_kil05")
+surface_material_override/0 = SubResource("StandardMaterial3D_r2ol4")

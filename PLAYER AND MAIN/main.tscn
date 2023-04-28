@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://debdmdiu62kt5"]
+
+[ext_resource type="PackedScene" uid="uid://bj37qr2dgqd8u" path="res://PLAYER AND MAIN/fps.tscn" id="1_dq1d4"]
+[ext_resource type="PackedScene" uid="uid://cs2l61auxq6yv" path="res://ENEMY/ENEMY.tscn" id="3_p5n8g"]
+[ext_resource type="PackedScene" uid="uid://wt8iepcx7ghj" path="res://WEAPON_PICKUPS/WEAPON 3.tscn" id="4_gthrn"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wlwkn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qne5"]
+albedo_color = Color(0.615686, 0.615686, 0.615686, 1)
+metallic = 1.0
+metallic_specular = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_l8lsv"]
+size = Vector3(5, 1, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_78ot7"]
+size = Vector3(5, 1, 5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_m1bsx"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[node name="StaticBody3D" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(22, 0, 0, 0, 22, 0, 0, 0, 22, 0, 0, 0)
+mesh = SubResource("PlaneMesh_wlwkn")
+surface_material_override/0 = SubResource("StandardMaterial3D_6qne5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.96698, 0)
+mesh = SubResource("BoxMesh_l8lsv")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.96698, 0)
+shape = SubResource("BoxShape3D_78ot7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.30212, 0.95327, 0, -0.95327, -0.30212, 0, 6.37945, 0)
+shadow_enabled = true
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_dq1d4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47653, 1.47769, -3.26547)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(22, 0, 0, 0, 22, 0, 0, 0, 22, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_m1bsx")
+
+[node name="WEAPON 3" parent="." instance=ExtResource("4_gthrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5397, 0.445502, -4.7577)
+
+[node name="StaticBody3D" parent="." instance=ExtResource("3_p5n8g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.17237, 1.07415, -9.47798)
+
+[node name="StaticBody3D4" parent="." instance=ExtResource("3_p5n8g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.17237, 1.07415, -9.47798)
+
+[node name="StaticBody3D5" parent="." instance=ExtResource("3_p5n8g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.17237, 1.07415, -9.47798)
+
+[node name="StaticBody3D6" parent="." instance=ExtResource("3_p5n8g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.82763, 1.07415, -9.47798)
+
+[node name="StaticBody3D7" parent="." instance=ExtResource("3_p5n8g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.82763, 1.07415, -9.47798)
+
+[node name="StaticBody3D8" parent="." instance=ExtResource("3_p5n8g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.82763, 1.07415, -9.47798)
+
+[node name="StaticBody3D2" parent="." instance=ExtResource("3_p5n8g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.95826, 1.07415, -9.47798)
+
+[node name="StaticBody3D3" parent="." instance=ExtResource("3_p5n8g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0417399, 1.07415, -9.47798)

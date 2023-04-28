@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://c43bmn6v3u5bk"]
+
+[ext_resource type="Script" path="res://WEAPON_PICK_script/WEAPON_PICKUP.gd" id="1_qj5mq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_th71r"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fi8xo"]
+material = SubResource("StandardMaterial3D_th71r")
+size = Vector3(0.2, 0.2, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_i6v4w"]
+points = PackedVector3Array(-0.1, -0.1, -0.471748, 0.114264, 0.114264, 0.507937, 0.114264, -0.107915, 0.507937, 0.114264, 0.114264, -0.507937, -0.107915, 0.114264, 0.507937, 0.114264, -0.107915, -0.507937, -0.107915, 0.114264, -0.507937, -0.1, -0.1, 0.471748)
+
+[node name="WEAPON 1" type="RigidBody3D"]
+script = ExtResource("1_qj5mq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_fi8xo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_i6v4w")

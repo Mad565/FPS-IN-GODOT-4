@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3qa6rn25io8l"]
+
+[ext_resource type="Texture2D" uid="uid://byysgwrfp65yx" path="res://DECAL/Bullet decal.png" id="1_0s7u2"]
+
+[node name="Decal" type="Decal"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+size = Vector3(0.1, 0.1, 0.1)
+texture_albedo = ExtResource("1_0s7u2")
