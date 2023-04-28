@@ -1,6 +1,7 @@
 # FULL-FPS-IN-GODOT-4
 FPS_GODOT_4 - IT HAS PICKABLE WEAPONS AND WEAPON SWITCHING , ALSO IT HAS RECOIL TOO.
 
+WEAPONS INCLUDED :  RED-SHOTGUN , BLUE-SMG AND YELLOW-PISTOL
 
 In Godot, you can use a premade FPS controller with crouching and pickable weapons that can switch weapons to quickly create an FPS game. A premade FPS controller is a pre-built asset that you can import into your project and customize to fit your needs.
 
