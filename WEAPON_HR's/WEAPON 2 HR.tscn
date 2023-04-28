@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://WEAPON_PICK_script/WEAPON_SCRIPT/WEAPON 2 HR.gd" id="1_j7ico"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xeoq7"]
-albedo_color = Color(1, 0, 1, 1)
+albedo_color = Color(0, 0, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_mxptw"]
 material = SubResource("StandardMaterial3D_xeoq7")
