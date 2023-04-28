@@ -12,3 +12,4 @@ Using this premade FPS controller in Godot with crouching and pickable weapons t
 ![Godot-weapon-pick-up-system-main (DEBUG) 4_29_2023 2_09_57 AM](https://user-images.githubusercontent.com/104206467/235252039-e9deeb3e-e1ba-4106-bba4-38f8efa6b868.png)
 
 ![Godot-weapon-pick-up-system-main (DEBUG) 4_29_2023 2_26_24 AM](https://user-images.githubusercontent.com/104206467/235252896-011aee71-5a2a-435b-b818-1d8e9cabc405.png)
+![Godot-weapon-pick-up-system-main (DEBUG) 4_29_2023 2_36_37 AM](https://user-images.githubusercontent.com/104206467/235254402-b6810097-0301-42a2-b35a-0d7327a22441.png)
