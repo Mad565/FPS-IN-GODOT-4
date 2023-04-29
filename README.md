@@ -1,6 +1,9 @@
 # FULL-FPS-IN-GODOT-4
 FPS_GODOT_4 - IT HAS PICKABLE WEAPONS AND WEAPON SWITCHING , ALSO IT HAS RECOIL TOO.
 
+If your using a future godot version. when you download the file please delete godot.project
+Because it won't work in future version of godot 
+
 SO WHAT ARE YOU WAITING FOR DOWNLOAD IT NOWWW.
 
 WEAPONS INCLUDED :  RED-SHOTGUN , BLUE-SMG AND YELLOW-PISTOL
