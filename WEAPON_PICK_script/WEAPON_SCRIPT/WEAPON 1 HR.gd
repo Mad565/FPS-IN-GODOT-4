@@ -45,18 +45,36 @@ func _process(delta):
 		ammo_counter.set_text("   %d - %d " % [ammo, spare_ammo])
 	if ammo <= 0:
 		can_fire = false
-	if Input.is_action_just_pressed("R") and not reloading:
+	if Input.is_action_just_pressed("R") and not reloading and ammo < max_ammo:
 		reload()
 	if Input.is_action_pressed("fire") and can_fire and full_auto:
 		if shotgun == false:
 			fire(delta)
+			if ammo > 0 and not reloading:
+				pass
+			elif not reloading:
+				reload()
 		else:
 			shotgun_fire(delta)
+			if ammo > 0 and not reloading:
+				pass
+			elif not reloading:
+				pass
 	elif Input.is_action_just_pressed("fire") and can_fire and not full_auto:
 		if shotgun == false:
 			fire(delta)
+			if ammo > 0 and not reloading:
+				pass
+			elif not reloading:
+				reload()
 		else:
 			shotgun_fire(delta)
+			if ammo > 0 and not reloading:
+				pass
+			elif not reloading:
+				pass
+
+
 
 func fire(delta):
 	recoil_func(delta)
